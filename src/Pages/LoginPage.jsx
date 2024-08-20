@@ -21,7 +21,7 @@ function LoginPage() {
       e.preventDefault();
       const message = await loginUser(email, password);
       console.log(message);
-      if (message == undefined) {
+      if (message === undefined) {
         setShowToast2(true);
       }
       if (message) {
