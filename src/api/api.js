@@ -15,7 +15,8 @@ const API_BASE_URL = "http://127.0.0.1:8000/api";
 
 export const getAllUsers = async () => {
   // const url = baseUrl + "/users/";
-  const url = "http://54.224.168.46/home_page/";
+  const url =
+    "https://high-4-alb-1316040543.us-east-1.elb.amazonaws.com/home_page/";
   // console.log(`Requesting: ${url}`)
   try {
     const response = await axios.get(url);
@@ -29,7 +30,7 @@ export const getAllUsers = async () => {
 export const UserRegisteration = async (registerUser) => {
   try {
     const response = await axios.post(
-      `http://54.224.168.46/user/register/`,
+      `https://high-4-alb-1316040543.us-east-1.elb.amazonaws.com/user/register/`,
       registerUser,
       {
         headers: {
@@ -59,10 +60,13 @@ export const UserRegisteration = async (registerUser) => {
 
 export const loginUser = async (email, password) => {
   try {
-    const response = await axios.post(`http://54.224.168.46/user/login/`, {
-      email: email,
-      password: password,
-    });
+    const response = await axios.post(
+      `https://high-4-alb-1316040543.us-east-1.elb.amazonaws.com/user/login/`,
+      {
+        email: email,
+        password: password,
+      }
+    );
     return response.data;
   } catch (error) {
     return error.response ? error.response : new Error("Network Error");
